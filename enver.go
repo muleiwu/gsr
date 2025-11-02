@@ -1,12 +1,12 @@
-package config_interface
+package gsr
 
 import "time"
 
-type SetConfigInterface interface {
-	Set(key string, value any)
+type Enver interface {
+	GetEnver
 }
 
-type GetConfigInterface interface {
+type GetEnver interface {
 	Get(key string, defaultValue any) any
 	GetBool(key string, defaultValue bool) bool
 	GetInt(key string, defaultValue int) int
@@ -18,9 +18,4 @@ type GetConfigInterface interface {
 	GetStringMapString(key string, defaultValue map[string]string) map[string]string
 	GetStringMapStringSlice(key string, defaultValue map[string][]string) map[string][]string
 	GetTime(key string, defaultValue time.Time) time.Time
-}
-
-type ConfigInterface interface {
-	SetConfigInterface
-	GetConfigInterface
 }

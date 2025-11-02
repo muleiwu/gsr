@@ -1,8 +1,13 @@
-package env_interface
+package gsr
 
 import "time"
 
-type EnvInterface interface {
+type Provider interface {
+	GetProvider
+	SetProvider
+}
+
+type GetProvider interface {
 	Get(key string, defaultValue any) any
 	GetBool(key string, defaultValue bool) bool
 	GetInt(key string, defaultValue int) int
@@ -14,4 +19,8 @@ type EnvInterface interface {
 	GetStringMapString(key string, defaultValue map[string]string) map[string]string
 	GetStringMapStringSlice(key string, defaultValue map[string][]string) map[string][]string
 	GetTime(key string, defaultValue time.Time) time.Time
+}
+
+type SetProvider interface {
+	Set(key string, value any)
 }
